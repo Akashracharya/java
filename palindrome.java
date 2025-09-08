@@ -1,7 +1,7 @@
 import static java.lang.Math.*;
 public class palindrome {
     
-    static int rev(int num){
+    public static int rev(int num){
         int digits = (int)(Math.log10(num))+1;
         return helper(num , digits);
     }
@@ -10,10 +10,16 @@ public class palindrome {
             return num;
         }
         int rem = num%10;
-        return rem * (int)(Math.pow(10 , digits-1))+ helper(num/10, digits-1);
+        return rem * (int)(Math.pow(10 , digits-1)) + helper(num/10,digits-1);
+        
     }
     public static void main(String args[]){
-        int num = 12625;
-        System.out.println(rev(num));
+        int num = 1331;
+        int revNum = rev(num);
+        if(num == revNum){
+            System.out.println("The number "+num+" is Palindrome");
+        }else{
+            System.out.println("The number is not palindrome "+num+" rev is "+revNum);
+        }
     }
 }
